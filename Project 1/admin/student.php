@@ -30,7 +30,7 @@
     
     <main style="margin-top: 58px">
         <div class="container pt-4">
-            <h2>Teachers Table</h2>
+            <h2>Students Table</h2>
             <table class="table table-striped table-bordered" style="width:100%" id="example">
                 <thead class="thead-dark">
                     <tr>
@@ -52,8 +52,32 @@
                         <td><?php echo $row['email']; ?></td>
                         <td><?php echo $row['password']; ?></td>
                         <td>
-                            <button class="btn btn-warning btn-sm mr-2">Edit</button>
-                            <button class="btn btn-danger btn-sm">Delete</button>
+                            <button onclick="window.location.href='editStudent.php?tId=<?php echo $row['id']; ?>'" class="btn btn-warning btn-sm mr-2">Edit</button>
+                            <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteConfirmationModal" data-student-id="<?php echo $row['id']; ?>">
+                                Delete
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="deleteConfirmationModalLabel">Delete Confirmation</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Are you sure you want to delete this student?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <!-- Actual Delete Action -->
+                                            <button type="button" class="btn btn-danger" onclick="deleteStudent(<?php echo $row['id']; ?>)">Yes, Delete</button>
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </td>
                     </tr>
                     <?php } ?>
@@ -70,10 +94,15 @@
                     paging: true // Enable pagination
                 });
             });
+
+            function deleteStudent(studentId) {
+                // Perform the actual deletion logic here
+                // You may use AJAX to send a request to deleteStudents.php or redirect to it
+                // Example: window.location.href = 'deleteStudents.php?id=' + studentId;
+                alert('Student deleted with ID: ' + studentId);
+            }
         </script>
     </div>
     </main>
-
-    
 </body>
 </html>

@@ -52,7 +52,7 @@
                         <td><?php echo $row['email']; ?></td>
                         <td><?php echo $row['password']; ?></td>
                         <td>
-                            <button class="btn btn-warning btn-sm mr-2">Edit</button>
+                            <button href = "editTeachers.php" class="btn btn-warning btn-sm mr-2">Edit</button>
                             <button class="btn btn-danger btn-sm">Delete</button>
                         </td>
                     </tr>
