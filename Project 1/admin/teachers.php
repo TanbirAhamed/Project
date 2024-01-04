@@ -15,51 +15,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
-    <title>Document</title>
+<meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />     
+    <title>Dashboard</title>
+    <meta name="description" content="" />
 </head>
 <body>
-    <header>
-        <!-- Sidebar -->
+     <!-- Layout wrapper -->
+     <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        <!-- Menu -->
         <?php include 'include/sidebar.php'; ?>
-        <!-- Sidebar -->
-    </header>
+        <!-- / Menu -->
+
+        <!-- Layout container -->
+        <div class="layout-page">
+          <!-- Navbar -->
+          <?php include 'include/navbar.php'; ?>
+          <!-- / Navbar -->
+
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <div class="col-12 mb-4">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between flex-sm-row flex-column gap-3">
+                      <div class="d-flex flex-sm-column flex-row align-items-start justify-content-between">
+                      <div class="card-title">
+                        <h2>Teachers</h2>
+                            <table id="example">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Password</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                        include '../connection.php';
+                                        $sql = "SELECT * FROM teachers";
+                                        $result = mysqli_query($con, $sql);
+                                        while ($row = mysqli_fetch_array($result)) {
+                                    ?>
+                                    <tr>
+                                        <td><?php echo $row['name']; ?></td>
+                                        <td><?php echo $row['email']; ?></td>
+                                        <td><?php echo $row['password']; ?></td>
+                                        <td>
+                                        <button onclick="window.location.href='editTeachers.php?tId=<?php echo $row['id']; ?>'" class="btn btn-warning btn-sm mr-2">Edit</button>
+                                            <button class="btn btn-danger btn-sm">Delete</button>
+                                        </td>
+                                    </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                      </div>
+                      <div id="profileReportChart"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- / Content -->
+            <div class="content-backdrop fade"></div>
+          </div>
+          <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+      </div>
+      <!-- Overlay -->
+      <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+    <!-- / Layout wrapper -->      
     
-    <main style="margin-top: 58px">
-        <div class="container pt-4">
-            <h2>Teachers Table</h2>
-            <table class="table table-striped table-bordered" style="width:100%" id="example">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Password</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                        include '../connection.php';
-                        $sql = "SELECT * FROM teachers";
-                        $result = mysqli_query($con, $sql);
-                        while ($row = mysqli_fetch_array($result)) {
-                    ?>
-                    <tr>
-                        <td><?php echo $row['name']; ?></td>
-                        <td><?php echo $row['email']; ?></td>
-                        <td><?php echo $row['password']; ?></td>
-                        <td>
-                            <button href = "editTeachers.php" class="btn btn-warning btn-sm mr-2">Edit</button>
-                            <button class="btn btn-danger btn-sm">Delete</button>
-                        </td>
-                    </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
-        
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
         <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 
@@ -72,8 +107,5 @@
             });
         </script>
     </div>
-    </main>
-
-    
 </body>
 </html>

@@ -30,7 +30,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container my-5">
+    <header>
+        <!-- Sidebar -->
+        <?php include 'include/sidebar.php'; ?>
+        <!-- Sidebar -->
+    </header>
+    <div class="container my-5"><br>
         <h2>Edit Students Here</h2>
         <form action="" method="post">
             <div class="form-group">

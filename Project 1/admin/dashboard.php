@@ -11,77 +11,99 @@
         header('Location: ../unauthorised.php');
     }
 ?>
+<?php include '../connection.php'; ?>
 <?php 
- include '../connection.php';
-    $t_id = isset($_REQUEST['tId']) ? $_REQUEST['tId'] : 0;
-    $s = "SELECT * FROM admin WHERE id=" . $t_id;
+    $t_id = $_SESSION['id'];
+    $s = "SELECT * FROM admin WHERE id= $t_id";
     $q = mysqli_query($con, $s);
     $r = mysqli_fetch_assoc($q);
 ?>
-
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Teacher</title>
-    <link rel="stylesheet" href="include/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-</head>
-<body>
-    <!-- Main Navigation -->
-    <header>
-        <!-- Sidebar -->
+<html
+  lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+      
+    <title>Dashboard</title>
+    <meta name="description" content="" />  
+  </head>
+
+  <body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        <!-- Menu -->
         <?php include 'include/sidebar.php'; ?>
-        <!-- Sidebar -->
-    </header>
-    <!-- Main Navigation -->
+        <!-- / Menu -->
 
-    <!-- Main layout -->
-    <main style="margin-top: 58px">
-        <div class="container pt-4">
-            <form method="post" action="">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" name="name" class="form-control" value="<?php echo $r['name']?>" id="name">
+        <!-- Layout container -->
+        <div class="layout-page">
+          <!-- Navbar -->
+          <?php include 'include/navbar.php'; ?>
+          <!-- / Navbar -->
+
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <div class="col-12 mb-4">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between flex-sm-row flex-column gap-3">
+                      <div class="d-flex flex-sm-column flex-row align-items-start justify-content-between">
+                      <div class="card-title">
+                        <h2>Admis</h2>
+                          <form action="" method="post">
+                              <div style="margin-bottom: 10px;">
+                                  <label for="name" style="display: block; margin-bottom: 5px;">Name:</label>
+                                  <input type="text" name="name" class="form-control" value="<?php echo $r['name'] ?>" id="name" style="width: 100%; padding: 8px;">
+                              </div>
+                              <div style="margin-bottom: 10px;">
+                                  <label for="email" style="display: block; margin-bottom: 5px;">Email:</label>
+                                  <input type="email" name="email" class="form-control" value="<?php echo $r['email'] ?>" id="email" style="width: 100%; padding: 8px;">
+                              </div>
+                              <div style="margin-bottom: 10px;">
+                                  <label for="password" style="display: block; margin-bottom: 5px;">Password:</label>
+                                  <input type="password" name="password" class="form-control" value="<?php echo $r['password'] ?>" id="password" style="width: 100%; padding: 8px;">
+                              </div>
+                              <div>
+                                  <button type="submit" class="btn" name="btn" style="background-color: #6c757d; color: #fff; padding: 8px 12px; border: none; cursor: pointer;">Update</button>
+                              </div>
+                          </form>
+                        </div>
+                      </div>
+                      <div id="profileReportChart"></div>
+                    </div>
+                  </div>
                 </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" name="email" class="form-control" value="<?php echo $r['email']?>" id="email">
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" name="password" class="form-control" value="<?php echo $r['password']?>" id="password">
-                </div>
-                <div class="form-group my-3">
-                    <button type="submit" class="btn btn-secondary" name="submitBtn">Update</button>
-                </div>
-            </form>
+              </div>
+            </div>
+            <!-- / Content -->
+            <div class="content-backdrop fade"></div>
+          </div>
+          <!-- Content wrapper -->
         </div>
-    </main>
-    <!-- Main layout -->
-</body>
+        <!-- / Layout page -->
+      </div>
+      <!-- Overlay -->
+      <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+    <!-- / Layout wrapper -->   
+  </body>
 </html>
-
 <?php 
-    if(isset($_POST['submitBtn'])){
-        $teacher_name = $_POST["name"];
-        $teacher_email = $_POST["email"];
-        $teacher_password = $_POST["password"];
-
-        $str = "UPDATE admin SET name='".$teacher_name."', 
-                    email='".$teacher_email."', 
-                    password='".$teacher_password."' 
-                    WHERE id=$t_id";
-
+    if(isset($_POST['btn'])){
+        $admin_name = $_POST["name"];
+        $admin_email = $_POST["email"];
+        $admin_password = $_POST["password"];
+        $str = "UPDATE admin SET name='".$admin_name."', 
+                    email='".$admin_email."', password='".$admin_password."'
+                    WHERE id='$t_id'";
         if(mysqli_query($con, $str)){
-            header('Location: teachers.php');
-            exit();
-        } else {
-            echo "<span class='text-center text-danger'>Error updating record: " . mysqli_error($con) . "</span>";
+            header('Location: dashboard.php');
         }
     }
 ?>
