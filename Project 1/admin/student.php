@@ -43,12 +43,9 @@
               <div class="col-12 mb-4">
                 <div class="card">
                   <div class="card-body">
-                    <div class="d-flex justify-content-between flex-sm-row flex-column gap-3">
-                      <div class="d-flex flex-sm-column flex-row align-items-start justify-content-between">
-                      <div class="card-title">
-                        <h2>Student</h2>
-                        <table class="display" style="width:100%" id="example">
-                            <thead class="thead-dark">
+                    <h2>Student</h2>
+                        <table class="table table-striped" id="example">
+                            <thead >
                                 <tr>
                                     <th>Name</th>
                                     <th>Email</th>
@@ -69,27 +66,23 @@
                                     <td><?php echo $row['password']; ?></td>
                                     <td>
                                         <button onclick="window.location.href='editStudent.php?tId=<?php echo $row['id']; ?>'" class="btn btn-warning btn-sm mr-2">Edit</button>
-                                        <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteConfirmationModal" data-student-id="<?php echo $row['id']; ?>">
-                                            Delete
-                                        </button>
-
-                                        <!-- Modal -->
-                                        <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog" role="document">
+                                        <button onclick="deleteStudent(<?php echo $row['id']; ?>)" class="btn btn-danger btn-sm">Delete</button>
+                                        <div class="modal" id="myModal<?php echo $row['id']; ?>">
+                                            <div class="modal-dialog">
                                                 <div class="modal-content">
+                                                    <!-- Modal Header -->
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="deleteConfirmationModalLabel">Delete Confirmation</h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
+                                                        <h4 class="modal-title">Delete Confirmation</h4>
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
                                                     </div>
+                                                    <!-- Modal body -->
                                                     <div class="modal-body">
-                                                        Are you sure you want to delete this student?
+                                                        Are you sure you want to delete <?php echo $row['name']; ?> ?
                                                     </div>
+                                                    <!-- Modal footer -->
                                                     <div class="modal-footer">
-                                                        <!-- Actual Delete Action -->
-                                                        <button type="button" class="btn btn-danger" onclick="deleteStudent(<?php echo $row['id']; ?>)">Yes, Delete</button>
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                                        <a class="btn btn-danger" href="deleteStudents.php?tId=<?php echo $row['id'] ?>">Yes</a>
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -118,9 +111,8 @@
       <div class="layout-overlay layout-menu-toggle"></div>
     </div>
     <!-- / Layout wrapper -->   
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
         <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-
         <script>
             $(document).ready(function () {
                 $("#example").DataTable({
@@ -130,9 +122,7 @@
             });
 
             function deleteStudent(studentId) {
-                // Perform the actual deletion logic here
-                // You may use AJAX to send a request to deleteStudents.php or redirect to it
-                // Example: window.location.href = 'deleteStudents.php?id=' + studentId;
+
                 alert('Student deleted with ID: ' + studentId);
             }
         </script>

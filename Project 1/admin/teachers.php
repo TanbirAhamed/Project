@@ -42,42 +42,36 @@
             <div class="container-xxl flex-grow-1 container-p-y">
               <div class="col-12 mb-4">
                 <div class="card">
-                  <div class="card-body">
-                    <div class="d-flex justify-content-between flex-sm-row flex-column gap-3">
-                      <div class="d-flex flex-sm-column flex-row align-items-start justify-content-between">
-                      <div class="card-title">
-                        <h2>Teachers</h2>
-                            <table id="example">
-                                <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Password</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                        include '../connection.php';
-                                        $sql = "SELECT * FROM teachers";
-                                        $result = mysqli_query($con, $sql);
-                                        while ($row = mysqli_fetch_array($result)) {
-                                    ?>
-                                    <tr>
-                                        <td><?php echo $row['name']; ?></td>
-                                        <td><?php echo $row['email']; ?></td>
-                                        <td><?php echo $row['password']; ?></td>
-                                        <td>
-                                        <button onclick="window.location.href='editTeachers.php?tId=<?php echo $row['id']; ?>'" class="btn btn-warning btn-sm mr-2">Edit</button>
-                                            <button class="btn btn-danger btn-sm">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <?php } ?>
-                                </tbody>
-                            </table>
-                        </div>
-                      </div>
-                      <div id="profileReportChart"></div>
+
+                    <h2>Teachers</h2>
+                      <table class="table table-striped" id="example">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Password</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                                include '../connection.php';
+                                $sql = "SELECT * FROM teachers";
+                                $result = mysqli_query($con, $sql);
+                                while ($row = mysqli_fetch_array($result)) {
+                            ?>
+                            <tr>
+                                <td><?php echo $row['name']; ?></td>
+                                <td><?php echo $row['email']; ?></td>
+                                <td><?php echo $row['password']; ?></td>
+                                <td>
+                                    <button onclick="window.location.href='editTeachers.php?tId=<?php echo $row['id']; ?>'" class="btn btn-warning btn-sm mr-2">Edit</button>
+                                    <button class="btn btn-danger btn-sm">Delete</button>
+                                </td>
+                            </tr>
+                          <?php } ?>
+                        </tbody>
+                      </table>
                     </div>
                   </div>
                 </div>
