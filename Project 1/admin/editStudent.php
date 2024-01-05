@@ -27,9 +27,9 @@
 <meta charset="utf-8" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />    
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />     
     <title>Dashboard</title>
-    <meta name="description" content="" />  
+    <meta name="description" content="" />
 </head>
 <body>
 <!-- Layout wrapper -->
@@ -52,31 +52,24 @@
               <div class="col-12 mb-4">
                 <div class="card">
                   <div class="card-body">
-                    <div class="d-flex justify-content-between flex-sm-row flex-column gap-3">
-                      <div class="d-flex flex-sm-column flex-row align-items-start justify-content-between">
-                      <div class="card-title">
-                        <h2>Edit Students Here</h2>
-                            <form action="" method="post">
-                                <div class="form-group">
-                                    <label for="">Name</label>
-                                    <input type="text" name="name" class="form-control" value="<?php echo $r['name'] ?>" id="">
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Email</label>
-                                    <input type="email" name="email" class="form-control" value="<?php echo $r['email'] ?>" id="">
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Password</label>
-                                    <input type="password" name="password" class="form-control" value="<?php echo $r['password'] ?>" id="">
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-secondary" name="submitBtn">Update</button>
-                                </div>
-                            </form>
-                        </div>
-                      </div>
-                      <div id="profileReportChart"></div>
-                    </div>
+                    <h2>Edit Students Here</h2>
+                      <form action="" method="post">
+                          <div>
+                              <label for="">Name</label>
+                              <input type="text" name="name" class="form-control mt-1" value="<?php echo $r['name'] ?>" id="">
+                          </div>
+                          <div class="form-group mt-2">
+                              <label for="">Email</label>
+                              <input type="email" name="email" class="form-control mt-1" value="<?php echo $r['email'] ?>" id="">
+                          </div>
+                          <div class="form-group mt-2">
+                              <label for="">Password</label>
+                              <input type="password" name="password" class="form-control mt-1" value="<?php echo $r['password'] ?>" id="">
+                          </div>
+                          <div class="form-group">
+                              <button type="submit" class="btn btn-secondary mt-2" name="submitBtn">Update</button>
+                          </div>
+                      </form>
                   </div>
                 </div>
               </div>

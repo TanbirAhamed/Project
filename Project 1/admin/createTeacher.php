@@ -41,35 +41,29 @@
               <div class="col-12 mb-4">
                 <div class="card">
                   <div class="card-body">
-                    <div class="d-flex justify-content-between flex-sm-row flex-column gap-3">
-                      <div class="d-flex flex-sm-column flex-row align-items-start justify-content-between">
-                        <div class="card-title">
-                            <h2>Create Teacher</h2>
-                            <form action="" method="post">
-                                <div class="form-group">
-                                    <label for="">Name</label>
-                                    <input type="text" name="name" class="form-control" id="">
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Email</label>
-                                    <input type="email" name="email" class="form-control" id="">
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Password</label>
-                                    <input type="password" name="password" class="form-control" id="">
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Confirm Password</label>
-                                    <input type="password" name="cnf_password" class="form-control" id="">
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-primary" name="submitBtn">Save</button>
-                                </div>
-                            </form>
+                    <h2>Create Teacher</h2>
+                      <form action="" method="post">
+                        <div class="form-group">
+                            <label for="">Name</label>
+                            <input type="text" name="name" class="form-control" id="">
                         </div>
-                      </div>
-                      <div id="profileReportChart"></div>
-                    </div>
+                        <div class="form-group mt-1">
+                            <label for="">Email</label>
+                            <input type="email" name="email" class="form-control" id="">
+                        </div>
+                        <div class="form-group mt-1">
+                            <label for="">Password</label>
+                            <input type="password" name="password" class="form-control" id="">
+                        </div>
+                        <div class="form-group mt-1">
+                            <label for="">Confirm Password</label>
+                            <input type="password" name="cnf_password" class="form-control" id="">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary mt-2" name="submitBtn">Save</button>
+                        </div>
+                      </form>
+                    </div> 
                   </div>
                 </div>
               </div>

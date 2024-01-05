@@ -25,8 +25,7 @@
     <meta charset="utf-8" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-      
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />    
     <title>Dashboard</title>
     <meta name="description" content="" />  
   </head>
@@ -52,30 +51,24 @@
               <div class="col-12 mb-4">
                 <div class="card">
                   <div class="card-body">
-                    <div class="d-flex justify-content-between flex-sm-row flex-column gap-3">
-                      <div class="d-flex flex-sm-column flex-row align-items-start justify-content-between">
-                      <div class="card-title">
-                        <h2>Admis</h2>
-                          <form action="" method="post">
-                              <div style="margin-bottom: 10px;">
-                                  <label for="name" style="display: block; margin-bottom: 5px;">Name:</label>
-                                  <input type="text" name="name" class="form-control" value="<?php echo $r['name'] ?>" id="name" style="width: 100%; padding: 8px;">
-                              </div>
-                              <div style="margin-bottom: 10px;">
-                                  <label for="email" style="display: block; margin-bottom: 5px;">Email:</label>
-                                  <input type="email" name="email" class="form-control" value="<?php echo $r['email'] ?>" id="email" style="width: 100%; padding: 8px;">
-                              </div>
-                              <div style="margin-bottom: 10px;">
-                                  <label for="password" style="display: block; margin-bottom: 5px;">Password:</label>
-                                  <input type="password" name="password" class="form-control" value="<?php echo $r['password'] ?>" id="password" style="width: 100%; padding: 8px;">
-                              </div>
-                              <div>
-                                  <button type="submit" class="btn" name="btn" style="background-color: #6c757d; color: #fff; padding: 8px 12px; border: none; cursor: pointer;">Update</button>
-                              </div>
-                          </form>
-                        </div>
-                      </div>
-                      <div id="profileReportChart"></div>
+                    <h2>Admis</h2>
+                      <form action="" method="post">
+                          <div style="margin-bottom: 10px;">
+                              <label for="name" style="display: block; margin-bottom: 5px;">Name:</label>
+                              <input type="text" name="name" class="form-control" value="<?php echo $r['name'] ?>" id="name" style="width: 100%; padding: 8px;">
+                          </div>
+                          <div style="margin-bottom: 10px;">
+                              <label for="email" style="display: block; margin-bottom: 5px;">Email:</label>
+                              <input type="email" name="email" class="form-control" value="<?php echo $r['email'] ?>" id="email" style="width: 100%; padding: 8px;">
+                          </div>
+                          <div style="margin-bottom: 10px;">
+                              <label for="password" style="display: block; margin-bottom: 5px;">Password:</label>
+                              <input type="password" name="password" class="form-control" value="<?php echo $r['password'] ?>" id="password" style="width: 100%; padding: 8px;">
+                          </div>
+                          <div>
+                              <button type="submit" class="btn btn-primary mt-1" name="submitBtn" >Update</button>
+                          </div>
+                      </form>
                     </div>
                   </div>
                 </div>
@@ -95,7 +88,7 @@
   </body>
 </html>
 <?php 
-    if(isset($_POST['btn'])){
+    if(isset($_POST['submitBtn'])){
         $admin_name = $_POST["name"];
         $admin_email = $_POST["email"];
         $admin_password = $_POST["password"];
