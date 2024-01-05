@@ -66,7 +66,7 @@
                                 <td><?php echo $row['password']; ?></td>
                                 <td>
                                     <button onclick="window.location.href='editTeachers.php?tId=<?php echo $row['id']; ?>'" class="btn btn-warning btn-sm mr-2">Edit</button>
-                                    <button onclick="confirmDelete(<?php echo $row['id']; ?>)" class="btn btn-danger btn-sm mr-2">Delete</button>
+                                    <button onclick="confirmDelete(<?php echo $row['id']; ?>,'<?php echo $row['name']; ?>')" class="btn btn-danger btn-sm mr-2">Delete</button>
                                 </td>
                             </tr>
                           <?php } ?>
@@ -90,13 +90,14 @@
     <!-- / Layout wrapper -->      
   </div>
   <!-- ... your HTML code ... -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 
 <script>
-  function confirmDelete(teacherId) {
+  function confirmDelete(teacherId,teachername) {
         // Display a confirmation dialog
-        var confirmDelete = confirm("Are you sure you want to delete this teacher?");
+        var confirmDelete = confirm("Are you sure you want to delete " + teachername + "?");
 
         // If the user clicks "OK" in the confirmation dialog
         if (confirmDelete) {
