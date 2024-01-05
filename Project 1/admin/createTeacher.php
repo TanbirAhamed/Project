@@ -1,4 +1,5 @@
 <?php
+    ob_start();
     session_start();
 
     //authentication
@@ -102,5 +103,6 @@ include '../connection.php';
 
         
     }
+    ob_end_flush();
 
 ?>

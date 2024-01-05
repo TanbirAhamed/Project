@@ -66,7 +66,8 @@
                                 <td><?php echo $row['password']; ?></td>
                                 <td>
                                     <button onclick="window.location.href='editTeachers.php?tId=<?php echo $row['id']; ?>'" class="btn btn-warning btn-sm mr-2">Edit</button>
-                                    <button class="btn btn-danger btn-sm">Delete</button>
+                                    <button onclick="window.location.href='deleteTeachers.php?tId=<?php echo $row['id']; ?>'" class="btn btn-danger btn-sm mr-2">Delete</button>
+
                                 </td>
                             </tr>
                           <?php } ?>
@@ -88,18 +89,20 @@
       <div class="layout-overlay layout-menu-toggle"></div>
     </div>
     <!-- / Layout wrapper -->      
-    
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
-        <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+  </div>
+  <!-- ... your HTML code ... -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 
-        <script>
-            $(document).ready(function () {
-                $("#example").DataTable({
-                    lengthMenu: [7], // Set the default page length to 7
-                    paging: true // Enable pagination
-                });
-            });
-        </script>
-    </div>
+<script>
+    $(document).ready(function () {
+        $("#example").DataTable({
+            lengthMenu: [7], // Set the default page length to 7
+            paging: true // Enable pagination
+        });
+
+        
+    });
+</script>
 </body>
 </html>

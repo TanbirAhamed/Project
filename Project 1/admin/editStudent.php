@@ -1,4 +1,5 @@
 <?php
+    ob_start();
     session_start();
 
     //authentication
@@ -11,8 +12,6 @@
         header('Location: ../unauthorised.php');
     }
 ?>
-
-
 <?php include '../connection.php'; ?>
 <?php 
     $t_id = isset($_REQUEST['tId']) ? $_REQUEST['tId'] : 0;
@@ -20,7 +19,6 @@
     $q = mysqli_query($con, $s);
     $r = mysqli_fetch_assoc($q);
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -102,6 +100,6 @@
             header('Location: student.php');
         }
     }
-
+    ob_end_flush();
 ?>
 

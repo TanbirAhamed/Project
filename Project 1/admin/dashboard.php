@@ -1,4 +1,5 @@
 <?php
+    ob_start();
     session_start();
 
     //authentication
@@ -99,4 +100,5 @@
             header('Location: dashboard.php');
         }
     }
+    ob_end_flush();
 ?>
