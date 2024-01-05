@@ -83,7 +83,7 @@
                   </g>
                 </svg>
               </span>
-              <span class="app-brand-text demo menu-text fw-bold ms-2">Univarsity</span>
+              <span class="app-brand-text demo menu-text fw-bold ms-2">University</span>
             </a>
 
             <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -104,7 +104,7 @@
             <!-- Layouts -->
             <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-layout"></i>
+                <i class="menu-icon tf-icons bx bx-user-plus"></i>
                 <div data-i18n="Layouts">Creation</div>
               </a>
               <ul class="menu-sub">
@@ -123,7 +123,8 @@
             <!-- Front Pages -->
             <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-store"></i>
+                <i class='menu-icon tf-icons bx bx-user'></i>
+            
                 <div data-i18n="Front Pages">Profile</div>
               </a>
               <ul class="menu-sub">
