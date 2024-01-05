@@ -1,4 +1,5 @@
 <?php
+    ob_start();
     session_start();
 
     //authentication
@@ -99,5 +100,5 @@
             header('Location: teachers.php');
         }
     }
-
+    ob_end_flush();
 ?>

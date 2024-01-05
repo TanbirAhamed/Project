@@ -66,29 +66,9 @@
                                     <td><?php echo $row['password']; ?></td>
                                     <td>
                                         <button onclick="window.location.href='editStudent.php?tId=<?php echo $row['id']; ?>'" class="btn btn-warning btn-sm mr-2">Edit</button>
-                                        <button onclick="deleteStudent(<?php echo $row['id']; ?>)" class="btn btn-danger btn-sm">Delete</button>
-                                        <div class="modal" id="myModal<?php echo $row['id']; ?>">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <!-- Modal Header -->
-                                                    <div class="modal-header">
-                                                        <h4 class="modal-title">Delete Confirmation</h4>
-                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                    </div>
-                                                    <!-- Modal body -->
-                                                    <div class="modal-body">
-                                                        Are you sure you want to delete <?php echo $row['name']; ?> ?
-                                                    </div>
-                                                    <!-- Modal footer -->
-                                                    <div class="modal-footer">
-                                                        <a class="btn btn-danger" href="deleteStudents.php?tId=<?php echo $row['id'] ?>">Yes</a>
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
+                                        <button onclick="window.location.href='deleteStudents.php?tId=<?php echo $row['id']; ?>'" class="btn btn-danger btn-sm mr-2">Delete</button>
+                                        </td>
+                                    </tr>
                                 <?php } ?>
                             </tbody>
                         </table>
@@ -111,21 +91,16 @@
       <div class="layout-overlay layout-menu-toggle"></div>
     </div>
     <!-- / Layout wrapper -->   
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
-        <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-        <script>
-            $(document).ready(function () {
-                $("#example").DataTable({
-                    lengthMenu: [7], // Set the default page length to 7
-                    paging: true // Enable pagination
-                });
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#example").DataTable({
+                lengthMenu: [7], // Set the default page length to 7
+                paging: true // Enable pagination
             });
-
-            function deleteStudent(studentId) {
-
-                alert('Student deleted with ID: ' + studentId);
-            }
-        </script>
+        });
+    </script>
 </body>
 </html>
 
