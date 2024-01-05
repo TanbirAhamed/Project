@@ -10,7 +10,6 @@
     if($_SESSION['user'] != 'admin'){
         header('Location: ../unauthorised.php');
     }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,8 +17,7 @@
 <meta charset="utf-8" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-      
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />     
     <title>Dashboard</title>
     <meta name="description" content="" />  
 </head>
@@ -30,7 +28,6 @@
         <!-- Menu -->
         <?php include 'include/sidebar.php'; ?>
         <!-- / Menu -->
-
         <!-- Layout container -->
         <div class="layout-page">
           <!-- Navbar -->
