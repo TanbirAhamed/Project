@@ -94,7 +94,7 @@ include '../connection.php';
             VALUES 
             ('".$teacher_name."', '".$teacher_email."', '".md5($password)."')";
             if(mysqli_query($con, $str)){
-                header('Location: student.php');
+                header('Location: teachers.php');
             }
         }
         else {

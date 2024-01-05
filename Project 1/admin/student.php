@@ -66,7 +66,7 @@
                                     <td><?php echo $row['password']; ?></td>
                                     <td>
                                         <button onclick="window.location.href='editStudent.php?tId=<?php echo $row['id']; ?>'" class="btn btn-warning btn-sm mr-2">Edit</button>
-                                        <button onclick="window.location.href='deleteStudents.php?tId=<?php echo $row['id']; ?>'" class="btn btn-danger btn-sm mr-2">Delete</button>
+                                        <button onclick="confirmDelete(<?php echo $row['id']; ?>)" class="btn btn-danger btn-sm mr-2">Delete</button>
                                         </td>
                                     </tr>
                                 <?php } ?>
@@ -91,16 +91,26 @@
       <div class="layout-overlay layout-menu-toggle"></div>
     </div>
     <!-- / Layout wrapper -->   
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $("#example").DataTable({
-                lengthMenu: [7], // Set the default page length to 7
-                paging: true // Enable pagination
-            });
-        });
-    </script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<script>
+    function confirmDelete(studentId) {
+    // Display a confirmation dialog
+    var confirmDelete = confirm("Are you sure you want to delete this Student?");
+
+    // If the user clicks "OK" in the confirmation dialog
+    if (confirmDelete) {
+        // Redirect to the deleteTeachers.php with the teacherId
+        window.location.href = 'deleteStudents.php?tId=' + studentId;
+    }
+}
+$(document).ready(function () {
+    $("#example").DataTable({
+        lengthMenu: [7], // Set the default page length to 7
+        paging: true // Enable pagination
+    });
+});
+</script>
 </body>
 </html>
 
