@@ -4,6 +4,12 @@
     if($_SESSION['user']=='admin'){
         header('Location: admin/dashboard.php');
     }
+    else if($_SESSION['user']=='teachers'){
+        header('Location: teacher/dashboard.php'); 
+    }
+    else if($_SESSION['user']=='students'){
+        header('Location: student/dashboard.php'); 
+    }
  }
 
 ?>
@@ -38,26 +44,42 @@
             <br>
             <button type="submit" name="submit" value="submit" class="btn mt-5">Login</button>
         </form>
-        <?php
+    <?php
         include 'connection.php';
-        if(isset($_POST['submit'])){
+        if (isset($_POST['submit'])) {
             $email = $_POST['email'];
             $pswd = $_POST['pswd'];
-            
-            $query = "SELECT * FROM admin WHERE email='$email' AND password='$pswd' ";
-            $result = mysqli_query($con,$query);
+        
+            $query = "SELECT * FROM admin WHERE email='$email' AND password='$pswd'";
+            $result = mysqli_query($con, $query);
             $admin = mysqli_fetch_array($result);
-
-            if($admin){
+        
+            $query = "SELECT * FROM teachers WHERE email='$email' AND password='$pswd'";
+            $result = mysqli_query($con, $query);
+            $teacher = mysqli_fetch_array($result);
+        
+            $query = "SELECT * FROM students WHERE email='$email' AND password='$pswd'";
+            $result = mysqli_query($con, $query);
+            $student = mysqli_fetch_array($result);
+        
+            if ($admin) {
                 $_SESSION['user'] = 'admin';
                 $_SESSION['id'] = $admin['id'];
                 header("Location: admin/dashboard.php");
+                exit();
+            } else if ($teacher) {
+                $_SESSION['user'] = 'teachers';
+                $_SESSION['id'] = $teacher['id'];
+                header("Location: teacher/dashboard.php");
+                exit();
+            } else if ($student) {
+                $_SESSION['user'] = 'students';
+                $_SESSION['id'] = $student['id'];
+                header("Location: student/dashboard.php");
+                exit();
+            } else {
+                echo "<span class='text-center text-danger'>Invalid Email or Password!</span>";
             }
-            else{
-                echo "<span class='text-center text-danger' >Invalid Email or Password!</span>";
-            }
-
-
         }
 
     ?>
