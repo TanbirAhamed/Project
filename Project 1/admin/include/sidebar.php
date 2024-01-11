@@ -125,7 +125,7 @@
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class='menu-icon tf-icons bx bx-user'></i>
             
-                <div data-i18n="Front Pages">Profile</div>
+                <div data-i18n="Front Pages">Tables</div>
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">

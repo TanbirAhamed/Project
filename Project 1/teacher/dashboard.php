@@ -64,7 +64,7 @@
                           </div>
                           <div style="margin-bottom: 10px;">
                               <label for="password" style="display: block; margin-bottom: 5px;">Password:</label>
-                              <input type="password" name="password" class="form-control" value="<?php echo $r['password'] ?>" id="password" style="width: 100%; padding: 8px;">
+                              <input type="text" name="password" class="form-control" value="<?php echo $r['password'] ?>" id="password" style="width: 100%; padding: 8px;">
                           </div>
                           <div>
                               <button type="submit" class="btn btn-primary mt-1" name="submitBtn" >Update</button>

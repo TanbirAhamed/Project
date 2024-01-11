@@ -104,26 +104,7 @@
             <!-- Layouts -->
             
             <!-- Front Pages -->
-            <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class='menu-icon tf-icons bx bx-user'></i>
             
-                <div data-i18n="Front Pages">Profile</div>
-              </a>
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="teachers.php" class="menu-link">
-                    <div data-i18n="Landing">Teachers</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a
-                    href="student.php" class="menu-link">
-                    <div data-i18n="Pricing">Students</div>
-                  </a>
-                </li>
-              </ul>
-            </li>
           </ul>
         </aside>
     <!-- Core JS -->

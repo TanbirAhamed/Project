@@ -95,7 +95,7 @@ include '../connection.php';
         if($password == $cnf_password){
             $str = "INSERT INTO students(name, email, password)
             VALUES 
-            ('".$teacher_name."', '".$teacher_email."', '".md5($password)."')";
+            ('".$teacher_name."', '".$teacher_email."', '".($password)."')";
             if(mysqli_query($con, $str)){
                 header('Location: student.php');
             }

@@ -1,4 +1,10 @@
-
+<?php include '../connection.php'; ?>
+<?php 
+    $t_id = $_SESSION['id'];
+    $s = "SELECT * FROM teachers WHERE id= $t_id";
+    $q = mysqli_query($con, $s);
+    $r = mysqli_fetch_assoc($q);
+?>
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
 
@@ -70,8 +76,8 @@
                             </div>
                           </div>
                           <div class="flex-grow-1">
-                            <span class="fw-medium d-block">Tanbir</span>
-                            <small class="text-muted">Admin</small>
+                            <span class="fw-medium d-block"><?php echo $r['name'] ?></span>
+                            <small class="text-muted">Teacher</small>
                           </div>
                         </div>
                       </a>
