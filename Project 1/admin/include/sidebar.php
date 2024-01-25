@@ -104,7 +104,7 @@
             <!-- Layouts -->
             <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-user-plus"></i>
+                <i class="menu-icon tf-icons bx bx-edit"></i>
                 <div data-i18n="Layouts">Creation</div>
               </a>
               <ul class="menu-sub">
@@ -118,13 +118,22 @@
                     <div data-i18n="Without navbar">Student</div>
                   </a>
                 </li>
+                <li class="menu-item">
+                  <a href="createSession.php" class="menu-link">
+                    <div data-i18n="Without navbar">Session</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="createCourse.php" class="menu-link">
+                    <div data-i18n="Without navbar">Course</div>
+                  </a>
+                </li>
               </ul>
             </li>
             <!-- Front Pages -->
             <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class='menu-icon tf-icons bx bx-user'></i>
-            
+                <i class='menu-icon tf-icons bx bx-table'></i>
                 <div data-i18n="Front Pages">Tables</div>
               </a>
               <ul class="menu-sub">
@@ -137,6 +146,32 @@
                   <a
                     href="student.php" class="menu-link">
                     <div data-i18n="Pricing">Students</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a
+                    href="session.php" class="menu-link">
+                    <div data-i18n="Pricing">Sessions</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a
+                    href="course.php" class="menu-link">
+                    <div data-i18n="Pricing">Courses</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class='menu-icon tf-icons bx bx-server'></i>
+                <div data-i18n="Front Pages">Manages</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a
+                    href="session.php" class="menu-link">
+                    <div data-i18n="Pricing">Sessions</div>
                   </a>
                 </li>
               </ul>
