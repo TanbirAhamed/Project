@@ -1,7 +1,11 @@
 <?php
 include('smtp/PHPMailerAutoload.php');
 
-echo smtp_mailer('reciever email','Subject','main message');
+$email = $_POST['email'];
+$sub = $_POST['sub'];
+$body = $_POST['msg'];
+
+echo smtp_mailer($email, $sub, $body);
 function smtp_mailer($to,$subject, $msg){
 	$mail = new PHPMailer(); 
 	$mail->IsSMTP(); 

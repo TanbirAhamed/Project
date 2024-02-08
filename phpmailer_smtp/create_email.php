@@ -11,20 +11,20 @@
 <body>
 <div class="container">
   <h2>Email Test</h2>
-  <form action="create_email.php">
+  <form action="test-email.php" method="post">
     <div class="form-group">
       <label for="email">Sender Email:</label>
       <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
     </div>
     <div class="form-group">
-      <label for="pwd">Subject:</label>
-      <input type="text" class="form-control" id="pwd" placeholder="Enter subject" name="pwd">
+      <label for="sub">Subject:</label>
+      <input type="text" class="form-control" id="sub" placeholder="Enter subject" name="sub">
     </div>
     <div class="form-group">
       <label for="comment">Write Your Message:</label>
       <textarea class="form-control" rows="5" id="comment" name="msg"></textarea>
     </div>
-    <button type="submit" class="btn btn-default">Submit</button>
+    <button type="submit" class="btn btn-default">Send</button>
   </form>
 </div>
 
